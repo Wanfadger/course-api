@@ -1,38 +1,40 @@
 package com.wanfadger.courseapi.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wanfadger.courseapi.daos.TopicDao;
+import com.wanfadger.courseapi.daoImpl.TopicDaoImpl;
 import com.wanfadger.courseapi.models.Topic;
+import com.wanfadger.courseapi.repository.TopicRepository;
 
 @Service
 public class TopicService {
 	 @Autowired
-	private TopicDao topicDao;
+	private TopicDaoImpl topicDaoImpl;
 	
-	 public UUID addTopic(Topic topic) {
-		return topicDao.insertTopic(topic);
+	 public void addTopic(Topic topic) {
+		 topicDaoImpl.insertTopic(topic);
 	 }
 	 
 	 public List<Topic> getAllTopics(){
-		 return topicDao.selectAllTopics();
+		return topicDaoImpl.selectAllTopics();
 	 }
 	 
-	 public Topic getTopic(UUID id) {
-		 return topicDao.selectTopic(id);
+	 public Optional<Topic> getTopic(long id) {
+		 return topicDaoImpl.selectTopic(id);
 	 }
 	 
-	 public UUID deleteTopic(UUID id) {
-		 return topicDao.deleteTopic(id);
+	 public void deleteTopic(long id) {
+		  topicDaoImpl.deleteTopic(id);
 		}
 
 
-		public UUID updateTopic(Topic topic) {
-			return topicDao.updateTopic(topic);
+		public void updateTopic(Topic topic) {
+		 topicDaoImpl.updateTopic(topic);
 		}
 	
 

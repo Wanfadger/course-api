@@ -2,55 +2,44 @@ package com.wanfadger.courseapi.daoImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.fasterxml.jackson.annotation.ObjectIdGenerators.UUIDGenerator;
-import com.wanfadger.courseapi.daos.TopicDao;
 import com.wanfadger.courseapi.models.Topic;
+import com.wanfadger.courseapi.repository.TopicRepository;
 
 @Repository
-public class TopicDaoImpl implements TopicDao {
-	private static List<Topic> topics = new ArrayList<>();
+public class TopicDaoImpl {
 
-	@Override
-	public UUID insertTopic(Topic topic) {
-	UUID uuid = UUID.randomUUID();
-	topic.setuId(uuid);
-	topics.add(topic);
-		return topic.getuId();
+	@Autowired
+	private TopicRepository topicRepository;
+	
+
+	public void insertTopic(Topic topic) {
+         topicRepository.save(topic);
 	}
 
-	@Override
 	public List<Topic> selectAllTopics() {
+		List<Topic> topics = new ArrayList<>();
+		topicRepository.findAll().forEach((topic) -> { topics.add(topic); });
 		return topics;
 	}
 
-	@Override
-	public Topic selectTopic(UUID id) {
-	 return topics.stream()
-				.filter((topic) -> topic.getuId().equals(id))
-				.findFirst()
-				.get();
+
+	public Optional<Topic> selectTopic(long id) {
+    return topicRepository.findById(id);
 	}
 
-	@Override
-	public UUID deleteTopic(UUID id) {
-		return topics.removeIf((topic) -> topic.getuId().equals(id)) ? id : null;
+
+	public void deleteTopic(long id) {
+	 topicRepository.deleteById(id);
 	}
 
-	@Override
-	public UUID updateTopic(Topic topic) {
-		//replacing topic at index
-		for(int i=0 ; i < topics.size() ; i++) {
-			Topic top = topics.get(i);
-		 	if((top.getuId().equals(topic.getuId()))) {
-		 		topics.set(i, topic);
-		 		return topic.getuId();
-		 	}
-		}
-		return null;
+	public void updateTopic(Topic topic) {
+     topicRepository.save(topic);	
 	}
 
 }

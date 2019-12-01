@@ -2,10 +2,14 @@ package com.wanfadger.courseapi.models;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Topic {
 	
-	private UUID uId;
-private int id;
+@Id()
+private long id;
 private String name;
 private String description;
 
@@ -21,40 +25,37 @@ public Topic(int id , String name , String description) {
 }
 
 
-public Topic(UUID id , String name , String description) {
-	this.uId = id;
-	this.name = name;
-	this.description = description;
-}
-
-
 
 public Topic(String name , String description) {
 	this.name = name;
 	this.description = description;
 }
 
-public int getId() {
+public long getId() {
 	return id;
+}
+
+public void setId(long id) {
+	this.id = id;
 }
 
 public String getName() {
 	return name;
 }
 
+public void setName(String name) {
+	this.name = name;
+}
+
 public String getDescription() {
 	return description;
 }
 
-
-public UUID getuId() {
-	return uId;
+public void setDescription(String description) {
+	this.description = description;
 }
 
 
-public void setuId(UUID uId) {
-	this.uId = uId;
-}
 
 
 

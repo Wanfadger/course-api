@@ -1,7 +1,8 @@
 package com.wanfadger.courseapi.controllers;
 
 import java.util.List;
-import java.util.UUID;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,8 +25,8 @@ public class TopicController {
 	private TopicService topicService;
 	
 	 @PostMapping 
-	public UUID addTopic(@RequestBody Topic topic) {
-			return topicService.addTopic(topic);	
+	public void addTopic(@RequestBody Topic topic) {
+			 topicService.addTopic(topic);	
 			}
 	 
 	 @GetMapping
@@ -34,19 +35,20 @@ public class TopicController {
 		 }
 		 
 	 @GetMapping("/{id}")
-		 public Topic getTopic(@PathVariable("id") UUID id) {
+		 public Optional<Topic> getTopic(@PathVariable("id") long id) {
 			 return topicService.getTopic(id);
 		 }
 	
 	 @DeleteMapping("/{id}")
-	 public UUID deleteTopic(@PathVariable("id") UUID id) {
-		 return topicService.deleteTopic(id);
+	 public void deleteTopic(@PathVariable("id") long id) {
+		  topicService.deleteTopic(id);
 		}
 	 
  
-	 @PutMapping
-	public UUID updateTopic(@RequestBody Topic topic) {
-			return topicService.updateTopic(topic);
+	 @PutMapping("/{id}")
+	public void updateTopic(@PathVariable("id") long id ,  @RequestBody Topic topic) {
+		 topic.setId(id);
+		 topicService.updateTopic(topic);
 		}
 	 
 }
