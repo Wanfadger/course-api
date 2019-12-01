@@ -26,7 +26,14 @@ public class TopicService {
 		 return topicDao.selectTopic(id);
 	 }
 	 
-	
+	 public UUID deleteTopic(UUID id) {
+		 return topicDao.deleteTopic(id);
+		}
+
+
+		public UUID updateTopic(Topic topic) {
+			return topicDao.updateTopic(topic);
+		}
 	
 
 }

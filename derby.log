@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Dec 01 12:27:17 EAT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016e-c0c9-22bb-000009580200 
+on database directory memory:/home/wanfadger/Desktop/sts-workspace/course-api/testdb with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1affbebc 
+Loaded from file:/home/wanfadger/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Ubuntu
+java.runtime.version=11.0.4+11-post-Ubuntu-1ubuntu218.04.3
+user.dir=/home/wanfadger/Desktop/sts-workspace/course-api
+os.name=Linux
+os.arch=amd64
+os.version=5.0.0-32-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

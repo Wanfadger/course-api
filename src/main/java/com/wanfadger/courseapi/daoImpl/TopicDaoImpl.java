@@ -35,4 +35,22 @@ public class TopicDaoImpl implements TopicDao {
 				.get();
 	}
 
+	@Override
+	public UUID deleteTopic(UUID id) {
+		return topics.removeIf((topic) -> topic.getuId().equals(id)) ? id : null;
+	}
+
+	@Override
+	public UUID updateTopic(Topic topic) {
+		//replacing topic at index
+		for(int i=0 ; i < topics.size() ; i++) {
+			Topic top = topics.get(i);
+		 	if((top.getuId().equals(topic.getuId()))) {
+		 		topics.set(i, topic);
+		 		return topic.getuId();
+		 	}
+		}
+		return null;
+	}
+
 }

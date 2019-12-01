@@ -11,4 +11,7 @@ public interface TopicDao {
 	public List<Topic> selectAllTopics();
 	public Topic selectTopic(UUID id);
 	
+	public UUID deleteTopic(UUID id);
+	public UUID updateTopic(Topic topic);
+	
 }
