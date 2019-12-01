@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wanfadger.courseapi.models.Course;
 import com.wanfadger.courseapi.models.Lesson;
-import com.wanfadger.courseapi.models.Topic;
-import com.wanfadger.courseapi.services.CourseService;
 import com.wanfadger.courseapi.services.LessonService;
 
 

@@ -2,18 +2,14 @@ package com.wanfadger.courseapi.services;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wanfadger.courseapi.daoImpl.CourseDaoImpl;
 import com.wanfadger.courseapi.daoImpl.LessonDaoImpl;
-import com.wanfadger.courseapi.daoImpl.TopicDaoImpl;
-import com.wanfadger.courseapi.models.Course;
 import com.wanfadger.courseapi.models.Lesson;
-import com.wanfadger.courseapi.models.Topic;
-import com.wanfadger.courseapi.repository.TopicRepository;
+
 
 @Service
 public class LessonService {
