@@ -17,9 +17,6 @@ private long id;
 private String name;
 private String description;
 
-@Transient
-List<Course> courses;
-
 
 public Topic() {
 	// TODO Auto-generated constructor stub
@@ -66,16 +63,6 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-
-public List<Course> getCourses() {
-	return courses;
-}
-
-public void setCourses(List<Course> courses) {
-	this.courses = courses;
-}
-
-
 
 
 
