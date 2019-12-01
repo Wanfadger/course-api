@@ -1,15 +1,15 @@
 package com.wanfadger.courseapi.models;
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
-public class Topic {
+public class Course {
 	
 @Id()
 @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,20 +17,16 @@ private long id;
 private String name;
 private String description;
 
-@Transient
-List<Course> courses;
+//@Column(name = "topic_id" , nullable = false)
+@ManyToOne
+private Topic topic;
 
 
-public Topic() {
+public Course() {
 	// TODO Auto-generated constructor stub
 }
 
-public Topic(long id) {
- this.id = id;	
-}
-
-
-public Topic(int id , String name , String description) {
+public Course(int id , String name , String description) {
 	this.id = id;
 	this.name = name;
 	this.description = description;
@@ -38,7 +34,7 @@ public Topic(int id , String name , String description) {
 
 
 
-public Topic(String name , String description) {
+public Course(String name , String description) {
 	this.name = name;
 	this.description = description;
 }
@@ -67,12 +63,12 @@ public void setDescription(String description) {
 	this.description = description;
 }
 
-public List<Course> getCourses() {
-	return courses;
+public Topic getTopic() {
+	return topic;
 }
 
-public void setCourses(List<Course> courses) {
-	this.courses = courses;
+public void setTopic(Topic topic) {
+	this.topic = topic;
 }
 
 
